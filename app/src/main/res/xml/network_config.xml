@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<network-security-config cleartextTrafficPermitted="true">-->
+<!--    <base-config>-->
+<!--        <trust-anchors>-->
+<!--            <certificates src="system" />-->
+<!--        </trust-anchors>-->
+<!--    </base-config>-->
+<!--</network-security-config>-->
+<network-security-config>
+    　<!--默认允许所有网址使用非安全连接-->
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>
