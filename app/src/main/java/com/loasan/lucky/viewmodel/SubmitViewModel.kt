@@ -11,7 +11,7 @@ class SubmitViewModel:ViewModel() {
 
     val drawList = ArrayList<LuckDog>()
 
-    val submitLiveDataforObseve = Transformations.switchMap(submitLiveData){
+    val submitLiveDataForObserve = Transformations.switchMap(submitLiveData){
         Repository.submitSession()
     }
 

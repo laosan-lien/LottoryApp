@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 
 
 object Repository {
+
     fun startSession() = liveData(Dispatchers.IO) {
         val result = try {
             val luckyResponse = LuckNetwork.startSession()
@@ -59,8 +60,7 @@ object Repository {
         val result = try {
             val luckyResponse = LuckNetwork.submitSession()
             if (luckyResponse.status == "SUCCESS") {
-                val luckDogList = luckyResponse.luckDogList
-                Result.success(luckDogList)
+                Result.success("SUCCESS")
             } else {
                 Result.failure(RuntimeException("response status is ${luckyResponse.status}"))
             }

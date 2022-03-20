@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.loasan.lucky" >
+    package="com.loasan.lucky">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,19 +12,15 @@
         android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Lucky" >
+        android:theme="@style/Theme.Lucky">
         <activity
-            android:name=".DrawResultActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:exported="false"
-            android:label="@string/title_activity_draw_result"
-            android:theme="@style/Theme.Lucky.Fullscreen" />
+            android:name=".WinnersActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

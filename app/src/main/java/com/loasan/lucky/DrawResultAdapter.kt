@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.loasan.lucky.beans.LuckDog
 
 
-class LuckProbAdapter(private val context: Context, private val luckDogList: List<LuckDog>) :
-    RecyclerView.Adapter<LuckProbAdapter.ViewHolder>() {
+class DrawResultAdapter(private val context: Context, private val luckDogList: List<LuckDog>) :
+    RecyclerView.Adapter<DrawResultAdapter.ViewHolder>() {
 
     private val headPortraitList = arrayListOf(R.drawable.touxiang)
 
@@ -19,12 +19,11 @@ class LuckProbAdapter(private val context: Context, private val luckDogList: Lis
         val headPortrait: ImageView = view.findViewById(R.id.headPortrait)
         val name: TextView = view.findViewById(R.id.name)
         val workNum: TextView = view.findViewById(R.id.workNum)
-        val weight :TextView = view.findViewById(R.id.weightNum)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.luck_dog_item_with_prob, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.luck_dog_item, parent, false)
         return ViewHolder(view)
 
     }
@@ -33,8 +32,6 @@ class LuckProbAdapter(private val context: Context, private val luckDogList: Lis
         holder.headPortrait.setImageDrawable(context.resources.getDrawable(headPortraitList.get(0)))
         holder.name.text  = luckDogList[position].name
         holder.workNum.text = luckDogList[position].workNum
-        holder.weight .text = luckDogList[position].winProp.toString()
-
     }
 
     override fun getItemCount(): Int = luckDogList.size

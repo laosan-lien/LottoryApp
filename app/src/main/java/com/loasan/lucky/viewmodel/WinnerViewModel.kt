@@ -10,10 +10,10 @@ class WinnerViewModel :ViewModel(){
 
     private val winnerLiveData = MutableLiveData<String>()
 
-    val drawList = ArrayList<LuckDog>()
+    val winnerList = ArrayList<LuckDog>()
 
-    val winnerLiveDataforObseve = Transformations.switchMap(winnerLiveData){
-        Repository.submitSession()
+    val winnerLiveDataForObserve = Transformations.switchMap(winnerLiveData){
+        Repository.getDrawResult()
     }
 
     fun submitSession(){
