@@ -18,5 +18,6 @@ class LastLuckViewModel : ViewModel() {
 
     fun startSession() {
         lastLuckLiveData.value = lastLuckLiveData.value
+
     }
 }

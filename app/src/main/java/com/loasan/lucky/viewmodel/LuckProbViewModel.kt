@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModel
 import com.loasan.lucky.beans.LuckDog
 import com.loasan.lucky.network.Repository
 
-class ProbViewModel :ViewModel(){
+class LuckProbViewModel :ViewModel(){
 
     private val drawLiveData = MutableLiveData<String>()
 
     val drawList = ArrayList<LuckDog>()
 
-    val drawLiveDataforObseve = Transformations.switchMap(drawLiveData){
+    val drawLiveDataForObserve = Transformations.switchMap(drawLiveData){
         Repository.getProb()
     }
 
