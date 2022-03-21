@@ -18,7 +18,7 @@ class WinnerViewModel :ViewModel(){
         Repository.getDrawResult()
     }
 
-    fun submitSession(){
+    fun getWinnerList(){
         winnerLiveData.value = winnerLiveData.value
     }
 }

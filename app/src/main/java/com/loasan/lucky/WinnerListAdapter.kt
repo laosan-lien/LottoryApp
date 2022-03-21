@@ -11,8 +11,8 @@ import com.loasan.lucky.beans.LuckDog
 
 private const val TAG = "Luck:DrawResultAdapter"
 
-class DrawResultAdapter(private val context: Context, private val luckDogList: List<LuckDog>) :
-    RecyclerView.Adapter<DrawResultAdapter.ViewHolder>() {
+class WinnerListAdapter(private val context: Context, private val luckDogList: List<LuckDog>) :
+    RecyclerView.Adapter<WinnerListAdapter.ViewHolder>() {
 
     private val headPortraitList = arrayListOf(R.drawable.look_head)
 

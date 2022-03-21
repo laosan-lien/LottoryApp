@@ -11,8 +11,6 @@ private const val TAG = "Luck:SubmitViewModel"
 class SubmitViewModel : ViewModel() {
     private val submitLiveData = MutableLiveData<String>()
 
-    val drawList = ArrayList<LuckDog>()
-
     val submitLiveDataForObserve = Transformations.switchMap(submitLiveData) {
         Repository.submitSession()
     }

@@ -12,8 +12,6 @@ class UpdateViewModel : ViewModel() {
     private val updateLiveData = MutableLiveData<String>()
     private lateinit var luckDog:LuckDog
 
-    val updateList = ArrayList<LuckDog>()
-
     val updateLiveDataForObserve = Transformations.switchMap(updateLiveData){
         Repository.updatePeople(this.luckDog)
     }

@@ -14,6 +14,7 @@ class LastLuckViewModel : ViewModel() {
 
     //保存Ui上现有的数据，防止转屏丢失
     val luckList = ArrayList<LuckDog>()
+
     val lastLuckLiveDataForObserve = Transformations.switchMap(lastLuckLiveData) {
         Repository.startSession()
     }

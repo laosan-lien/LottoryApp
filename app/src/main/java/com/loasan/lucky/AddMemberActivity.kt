@@ -42,7 +42,7 @@ class AddMemberActivity : AppCompatActivity() {
             }
         }
 
-        submitInfo.setOnClickListener {
+        submitAdd.setOnClickListener {
             //TODO:提交功能，功能未完善
             if(name == null){
                 Toast.makeText(this, "请输入正确的名字", Toast.LENGTH_SHORT).show()
@@ -64,6 +64,10 @@ class AddMemberActivity : AppCompatActivity() {
                 })
                 this.finish()
             }
+        }
+
+        cancelSubmit.setOnClickListener{
+            this.finish()
         }
     }
 }

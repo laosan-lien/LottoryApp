@@ -31,12 +31,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //添加成员
+        addMember.setOnClickListener {
+            val addMemberIntent = Intent(this, AddMemberActivity::class.java)
+            startActivity(addMemberIntent)
+        }
+
+        //开始抽奖
+        beginToDraw.setOnClickListener {
+            val winnerIntent = Intent(this, WinnersActivity::class.java)
+            startActivity(winnerIntent)
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onResume() {
+        super.onResume()
         //显示上次抽中的列表
         val lastLuckLayoutManager = LinearLayoutManager(this)
         lastLuckList.layoutManager = lastLuckLayoutManager
         lastLuckAdapter = LastLuckAdapter(this, lastLuckViewModel.luckList)
         lastLuckList.adapter = lastLuckAdapter
-
         lastLuckViewModel.startSession()
         lastLuckViewModel.lastLuckLiveDataForObserve.observe(this, Observer { result ->
             val luckList = result.getOrNull()
@@ -45,6 +60,8 @@ class MainActivity : AppCompatActivity() {
                 lastLuckViewModel.luckList.clear()
                 lastLuckViewModel.luckList.addAll(luckList)
                 lastLuckAdapter.notifyDataSetChanged()
+            }else{
+                Toast.makeText(this ,"上次中奖名单获取失败",Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -63,19 +80,9 @@ class MainActivity : AppCompatActivity() {
                 luckProbViewModel.drawList.clear()
                 luckProbViewModel.drawList.addAll(luckWithProbList)
                 luckProbAdapter.notifyDataSetChanged()
+            }else{
+                Toast.makeText(this ,"抽奖成员名单获取失败",Toast.LENGTH_SHORT).show()
             }
         })
-
-        //添加成员
-        addMember.setOnClickListener {
-            val addMemberIntent = Intent(this, AddMemberActivity::class.java)
-            startActivity(addMemberIntent)
-        }
-
-        //开始抽奖
-        beginToDraw.setOnClickListener {
-            val winnerIntent = Intent(this, WinnersActivity::class.java)
-            startActivity(winnerIntent)
-        }
     }
 }

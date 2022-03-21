@@ -1,5 +1,6 @@
 package com.loasan.lucky
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -10,6 +11,7 @@ import com.loasan.lucky.beans.LuckDog
 import com.loasan.lucky.viewmodel.SubmitViewModel
 import com.loasan.lucky.viewmodel.WinnerViewModel
 import kotlinx.android.synthetic.main.activity_draw_result.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG = "Luck:WinnersActivity"
 
@@ -19,6 +21,7 @@ class WinnersActivity : AppCompatActivity() {
     private val submitViewModel by lazy { ViewModelProviders.of(this)[SubmitViewModel::class.java] }
     private lateinit var drawResultList: List<LuckDog>
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_draw_result)
@@ -26,8 +29,24 @@ class WinnersActivity : AppCompatActivity() {
         val winnerLayoutManager = LinearLayoutManager(this)
         winnerList.layoutManager = winnerLayoutManager
         drawResultList = winnerViewModel.winnerList
+        val winnerListAdapter = WinnerListAdapter(this, drawResultList)
+        winnerList.adapter = winnerListAdapter
+        winnerListAdapter.notifyDataSetChanged()
 
-        val drawResultAdapter = DrawResultAdapter(this, winnerViewModel.winnerList)
+        winnerViewModel.getWinnerList()
+        winnerViewModel.winnerLiveDataForObserve.observe(this, { result ->
+            val luckWithProbList = result.getOrNull()
+            Log.d(TAG, "onCreate: luckWithProbList =$luckWithProbList")
+            if (!luckWithProbList.isNullOrEmpty()) {
+                winnerViewModel.winnerList.clear()
+                winnerViewModel.winnerList.addAll(luckWithProbList)
+                winnerListAdapter.notifyDataSetChanged()
+            }else{
+                Toast.makeText(this ,"抽奖成员名单获取失败",Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        val drawResultAdapter = WinnerListAdapter(this, winnerViewModel.winnerList)
         winnerList.adapter = drawResultAdapter
 
         submitRes.setOnClickListener {
