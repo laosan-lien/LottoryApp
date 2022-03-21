@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.loasan.lucky.beans.LuckDog
 import com.loasan.lucky.network.Repository
 
+private const val TAG = "Luck:LuckProbViewModel"
+
 class LuckProbViewModel :ViewModel(){
 
     private val drawLiveData = MutableLiveData<String>()

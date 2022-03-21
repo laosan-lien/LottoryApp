@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.activity_draw_result.*
 
 private const val TAG = "Luck:WinnersActivity"
 
-
 class WinnersActivity : AppCompatActivity() {
 
     private val winnerViewModel by lazy { ViewModelProviders.of(this)[WinnerViewModel::class.java] }
@@ -27,24 +26,12 @@ class WinnersActivity : AppCompatActivity() {
         val winnerLayoutManager = LinearLayoutManager(this)
         winnerList.layoutManager = winnerLayoutManager
         drawResultList = winnerViewModel.winnerList
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
-        winnerViewModel.winnerList.add(LuckDog("80151788", "李恩", 0.1))
 
         val drawResultAdapter = DrawResultAdapter(this, winnerViewModel.winnerList)
         winnerList.adapter = drawResultAdapter
 
-
         submitRes.setOnClickListener {
+            //TODO:提交功能，功能未完善
             submitViewModel.submitSession()
             submitViewModel.submitLiveDataForObserve.observe(this, { result ->
                 val luckWithProbList = result.getOrNull()
@@ -54,10 +41,6 @@ class WinnersActivity : AppCompatActivity() {
                 }
             })
         }
-
-
     }
-    9/5000
-    Added the function of submitting results
 
 }

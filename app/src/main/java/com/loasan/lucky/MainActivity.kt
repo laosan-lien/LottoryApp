@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.loasan.lucky.beans.LuckDog
 import com.loasan.lucky.viewmodel.LastLuckViewModel
 import com.loasan.lucky.viewmodel.LuckProbViewModel
+import com.loasan.lucky.viewmodel.SubmitViewModel
+import com.loasan.lucky.viewmodel.UpdateViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG = "Lucky:MainActivity"
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private val lastLuckViewModel by lazy { ViewModelProviders.of(this)[LastLuckViewModel::class.java] }
     private val luckProbViewModel by lazy { ViewModelProviders.of(this)[LuckProbViewModel::class.java] }
+
     private lateinit var lastLuckAdapter: LastLuckAdapter
     private lateinit var luckProbAdapter: LuckProbAdapter
 
@@ -30,18 +34,6 @@ class MainActivity : AppCompatActivity() {
         //显示上次抽中的列表
         val lastLuckLayoutManager = LinearLayoutManager(this)
         lastLuckList.layoutManager = lastLuckLayoutManager
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
-        lastLuckViewModel.luckList.add(LuckDog("80151788", "李恩", 0.1))
         lastLuckAdapter = LastLuckAdapter(this, lastLuckViewModel.luckList)
         lastLuckList.adapter = lastLuckAdapter
 
@@ -59,22 +51,6 @@ class MainActivity : AppCompatActivity() {
         //显示奖池中参与抽奖的同事以及概率列表
         val luckProbLayoutManager = LinearLayoutManager(this)
         luckProbList.layoutManager = luckProbLayoutManager
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
-        luckProbViewModel.drawList.add(LuckDog("80151788", "李恩", 0.1))
         luckProbAdapter = LuckProbAdapter(this, luckProbViewModel.drawList)
         luckProbList.adapter = luckProbAdapter
         luckProbAdapter.notifyDataSetChanged()
@@ -90,10 +66,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
         //添加成员
         addMember.setOnClickListener {
-
+            val addMemberIntent = Intent(this, AddMemberActivity::class.java)
+            startActivity(addMemberIntent)
         }
 
         //开始抽奖

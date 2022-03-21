@@ -9,14 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.loasan.lucky.beans.LuckDog
 import java.util.*
-import kotlin.random.Random
 
 private const val TAG = "Luck:LastLuckAdapter"
 
 class LastLuckAdapter(val context: Context, private val luckDogList: List<LuckDog>) :
     RecyclerView.Adapter<LastLuckAdapter.ViewHolder>() {
 
-    val headPortraitList = arrayListOf<Int>(R.drawable.touxiang)
+    val headPortraitList = arrayListOf<Int>(R.drawable.look_head)
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val headPortrait: ImageView = view.findViewById(R.id.headPortrait)

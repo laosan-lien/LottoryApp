@@ -1,6 +1,6 @@
 package com.loasan.lucky.network
 
-import kotlinx.coroutines.suspendCancellableCoroutine
+import com.loasan.lucky.beans.LuckDog
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,6 +17,8 @@ object LuckNetwork {
     suspend fun getProb() = luckService.getProb().await()
 
     suspend fun getDrawResult() = luckService.getDrawResult().await()
+
+    suspend fun updateSession(luckDog: LuckDog) = luckService.updatePeople(luckDog).await()
 
     suspend fun submitSession() = luckService.submitSession().await()
 

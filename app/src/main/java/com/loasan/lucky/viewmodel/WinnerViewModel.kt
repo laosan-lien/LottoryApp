@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.loasan.lucky.beans.LuckDog
 import com.loasan.lucky.network.Repository
 
+private const val TAG = "Luck:WinnerViewModel"
+
 class WinnerViewModel :ViewModel(){
 
     private val winnerLiveData = MutableLiveData<String>()

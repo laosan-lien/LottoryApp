@@ -9,11 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.loasan.lucky.beans.LuckDog
 
+private const val TAG = "Luck:LuckProbAdapter"
 
 class LuckProbAdapter(private val context: Context, private val luckDogList: List<LuckDog>) :
     RecyclerView.Adapter<LuckProbAdapter.ViewHolder>() {
 
-    private val headPortraitList = arrayListOf(R.drawable.touxiang)
+    private val headPortraitList = arrayListOf(R.drawable.look_head)
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val headPortrait: ImageView = view.findViewById(R.id.headPortrait)
@@ -33,7 +34,7 @@ class LuckProbAdapter(private val context: Context, private val luckDogList: Lis
         holder.headPortrait.setImageDrawable(context.resources.getDrawable(headPortraitList.get(0)))
         holder.name.text  = luckDogList[position].name
         holder.workNum.text = luckDogList[position].workNum
-        holder.weight .text = luckDogList[position].winProp.toString()
+        holder.weight .text = luckDogList[position].winProb.toString()
 
     }
 

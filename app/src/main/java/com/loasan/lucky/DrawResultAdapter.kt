@@ -9,11 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.loasan.lucky.beans.LuckDog
 
+private const val TAG = "Luck:DrawResultAdapter"
 
 class DrawResultAdapter(private val context: Context, private val luckDogList: List<LuckDog>) :
     RecyclerView.Adapter<DrawResultAdapter.ViewHolder>() {
 
-    private val headPortraitList = arrayListOf(R.drawable.touxiang)
+    private val headPortraitList = arrayListOf(R.drawable.look_head)
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val headPortrait: ImageView = view.findViewById(R.id.headPortrait)
