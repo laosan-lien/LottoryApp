@@ -1,54 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:orientation="horizontal"
     android:padding="5dp">
 
-    <com.loasan.lucky.RoundedImageIcon
+    <com.loasan.lucky.ui.RoundImageView
         android:id="@+id/headPortrait"
         android:layout_width="50dp"
-        android:layout_gravity="center"
         android:layout_height="50dp"
-        app:radius="24.5dp"
+        android:layout_gravity="center"
         android:src="@drawable/look_head" />
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="3"
         android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:layout_margin="5dp"
         android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:text="李恩"
-            android:textSize="15sp" />
+            android:textColor="#111111"
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/workNum"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-
-            android:gravity="center"
-            android:text="80351788" />
-    </LinearLayout>
+            android:gravity="center_vertical"
+            android:text="80351788"
+            android:textSize="13sp" />
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginLeft="3dp"
-            android:id="@+id/weightNum"
-            android:background="#81BD81"
-            android:gravity="center"
-            android:text="2" />
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#68454543"
+            android:paddingLeft="5dp"
+            android:paddingEnd="5dp"
+            tools:ignore="Suspicious0dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/weightNum"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="3dp"
+        android:layout_weight="1"
+        android:background="#81BD81"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:text="2" />
 
 
 </LinearLayout>

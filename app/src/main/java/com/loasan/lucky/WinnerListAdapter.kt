@@ -1,5 +1,6 @@
 package com.loasan.lucky
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.loasan.lucky.beans.LuckDog
+import com.loasan.lucky.ui.HeadPortraitList
 
 private const val TAG = "Luck:DrawResultAdapter"
 
@@ -29,8 +31,9 @@ class WinnerListAdapter(private val context: Context, private val luckDogList: L
 
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.headPortrait.setImageDrawable(context.resources.getDrawable(headPortraitList.get(0)))
+        holder.headPortrait.setImageDrawable(context.resources.getDrawable(HeadPortraitList.getHeadPortrait()))
         holder.name.text  = luckDogList[position].name
         holder.workNum.text = luckDogList[position].workNum
     }

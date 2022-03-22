@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/home_bg"
     tools:context=".WinnersActivity">
 
     <TextView
@@ -12,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#66669E"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:text="中奖列表"
         android:textSize="30sp" />
 
@@ -21,6 +19,7 @@
         android:id="@+id/winnerList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="20dp"
         android:layout_weight="5" />
 
     <LinearLayout
@@ -33,6 +32,7 @@
             android:id="@+id/submitRes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.7"
             android:text="提交结果" />
     </LinearLayout>
 

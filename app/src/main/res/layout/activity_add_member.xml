@@ -5,8 +5,11 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/home_bg"
     tools:context=".AddMemberActivity">
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_baseline_person_add_24"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
+            android:alpha="0.7"
             android:text="取  消" />
 
         <Button
@@ -51,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
+            android:alpha="0.7"
             android:text="添  加" />
 
     </LinearLayout>

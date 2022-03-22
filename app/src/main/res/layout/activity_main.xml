@@ -4,20 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_bg"
     android:orientation="vertical"
+    android:layout_margin="5dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:background="#05FBFB"
-        android:gravity="center"
-        android:text="抽奖信息"
-        android:textSize="50dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +15,7 @@
         android:layout_weight="8"
         android:alpha="0.8"
         android:orientation="horizontal">
+
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -53,12 +44,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="40dp"
+            android:alpha="0.7"
             android:text="添加成员" />
 
         <Button
             android:id="@+id/beginToDraw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="0.7"
             android:layout_marginStart="40dp"
             android:text="抽 奖" />
 

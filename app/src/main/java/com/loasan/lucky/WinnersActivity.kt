@@ -40,14 +40,12 @@ class WinnersActivity : AppCompatActivity() {
             if (!winnerResultList.isNullOrEmpty()) {
                 Log.d(TAG, "onCreate: luckWithProbList =$winnerResultList")
                 winnerViewModel.winnerList.clear()
-                var i = 0
                 val handler = Handler(Looper.getMainLooper())
-                for (winner in winnerResultList) {
+                for ((i, winner) in winnerResultList.withIndex()) {
                     handler.postDelayed(Runnable {
-
                         winnerViewModel.winnerList.add(winner)
                         winnerListAdapter.notifyDataSetChanged()
-                    }, (1000 * i).toLong())
+                    }, (1500 * i).toLong())
                 }
             } else {
                 Toast.makeText(this, "抽奖结果获取失败", Toast.LENGTH_SHORT).show()

@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.loasan.lucky.viewmodel.LastLuckViewModel
 import com.loasan.lucky.viewmodel.LuckProbViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.random.Random
 
 private const val TAG = "Lucky:MainActivity"
 
@@ -27,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         //添加成员
         addMember.setOnClickListener {
             val addMemberIntent = Intent(this, AddMemberActivity::class.java)

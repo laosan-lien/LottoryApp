@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="RoundedImageIcon">
-        <attr name="radius" format="dimension" />
-        <attr name="left_top_radius" format="dimension" />
-        <attr name="right_top_radius" format="dimension" />
-        <attr name="right_bottom_radius" format="dimension" />
-        <attr name="left_bottom_radius" format="dimension" />
-    </declare-styleable>
 
-    <declare-styleable name="TintImageView">
-        <attr name="tintColorUp" format="color" />
-        <attr name="tintColorDown" format="color" />
+    <declare-styleable name="RoundImageView">
+        <attr name="radius" format="dimension" />
     </declare-styleable>
 </resources>
