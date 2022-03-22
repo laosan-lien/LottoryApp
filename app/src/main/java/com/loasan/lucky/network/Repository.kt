@@ -1,5 +1,6 @@
 package com.loasan.lucky.network
 
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.liveData
 import com.loasan.lucky.LuckyApplication
@@ -33,6 +34,7 @@ object Repository {
             val luckyResponse = LuckNetwork.getProb()
             if (luckyResponse.status == "SUCCESS") {
                 val luckDogList = luckyResponse.luckDogList
+                Log.d(TAG, "getProb: luckDogList = $luckDogList")
                 Result.success(luckDogList)
             } else {
                 Result.failure(RuntimeException("response status is ${luckyResponse.status}"))

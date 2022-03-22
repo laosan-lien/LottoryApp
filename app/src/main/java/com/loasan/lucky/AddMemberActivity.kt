@@ -17,8 +17,8 @@ class AddMemberActivity : AppCompatActivity() {
 
     private val updateViewModel by lazy { ViewModelProviders.of(this)[UpdateViewModel::class.java] }
     private val submitViewModel by lazy { ViewModelProviders.of(this)[SubmitViewModel::class.java] }
-    private  var name: String? = null
-    private  var workNum: String? = null
+    private var name: String? = null
+    private var workNum: String? = null
     private var weight: Int = -2
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,29 +44,29 @@ class AddMemberActivity : AppCompatActivity() {
 
         submitAdd.setOnClickListener {
             //TODO:提交功能，功能未完善
-            if(name == null){
+            if (name == null) {
                 Toast.makeText(this, "请输入正确的名字", Toast.LENGTH_SHORT).show()
-            }else if(workNum == null){
+            } else if (workNum == null) {
                 Toast.makeText(this, "请输入正确的工号", Toast.LENGTH_SHORT).show()
-            }else if (weight ==  -2){
+            } else if (weight == -2) {
                 Toast.makeText(this, "请输入正确的权重", Toast.LENGTH_SHORT).show()
-            }else{
-                updateViewModel.updateSession(LuckDog("8023412", "loasan", 1))
+            } else {
+                updateViewModel.updatePeople(LuckDog(workNum!!, name!!, weight))
                 updateViewModel.updateLiveDataForObserve.observe(this, { result ->
                     val updateList = result.getOrNull()
                     Log.d(TAG, "onCreate: luckWithProbList =$updateList")
                     if (!updateList.isNullOrEmpty()) {
                         Toast.makeText(this, "${updateList[0]}成员已添加", Toast.LENGTH_SHORT).show()
-                        submitViewModel.submitSession()
-                    }else{
+                        this.finish()
+                    } else {
                         Toast.makeText(this, "成员添加失败", Toast.LENGTH_SHORT).show()
+                        this.finish()
                     }
                 })
-                this.finish()
             }
         }
 
-        cancelSubmit.setOnClickListener{
+        cancelSubmit.setOnClickListener {
             this.finish()
         }
     }

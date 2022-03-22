@@ -9,11 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.loasan.lucky.beans.LuckDog
 import com.loasan.lucky.viewmodel.LastLuckViewModel
 import com.loasan.lucky.viewmodel.LuckProbViewModel
-import com.loasan.lucky.viewmodel.SubmitViewModel
-import com.loasan.lucky.viewmodel.UpdateViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 private const val TAG = "Lucky:MainActivity"
@@ -50,15 +47,15 @@ class MainActivity : AppCompatActivity() {
         //显示上次抽中的列表
         val lastLuckLayoutManager = LinearLayoutManager(this)
         lastLuckList.layoutManager = lastLuckLayoutManager
-        lastLuckAdapter = LastLuckAdapter(this, lastLuckViewModel.luckList)
+        lastLuckAdapter = LastLuckAdapter(this, lastLuckViewModel.lastLuckList)
         lastLuckList.adapter = lastLuckAdapter
         lastLuckViewModel.startSession()
         lastLuckViewModel.lastLuckLiveDataForObserve.observe(this, Observer { result ->
             val luckList = result.getOrNull()
             Log.d(TAG, "onCreate: luckList = $luckList")
             if (!luckList.isNullOrEmpty()) {
-                lastLuckViewModel.luckList.clear()
-                lastLuckViewModel.luckList.addAll(luckList)
+                lastLuckViewModel.lastLuckList.clear()
+                lastLuckViewModel.lastLuckList.addAll(luckList)
                 lastLuckAdapter.notifyDataSetChanged()
             }else{
                 Toast.makeText(this ,"上次中奖名单获取失败",Toast.LENGTH_SHORT).show()

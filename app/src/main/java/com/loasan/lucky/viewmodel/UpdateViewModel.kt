@@ -16,7 +16,7 @@ class UpdateViewModel : ViewModel() {
         Repository.updatePeople(this.luckDog)
     }
 
-    fun updateSession(luckDog: LuckDog) {
+    fun updatePeople(luckDog: LuckDog) {
         this.luckDog = luckDog
         updateLiveData.value = updateLiveData.value
     }

@@ -13,7 +13,7 @@ class LastLuckViewModel : ViewModel() {
     private val lastLuckLiveData = MutableLiveData<String>()
 
     //保存Ui上现有的数据，防止转屏丢失
-    val luckList = ArrayList<LuckDog>()
+    val lastLuckList = ArrayList<LuckDog>()
 
     val lastLuckLiveDataForObserve = Transformations.switchMap(lastLuckLiveData) {
         Repository.startSession()

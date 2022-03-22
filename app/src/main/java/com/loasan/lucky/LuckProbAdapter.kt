@@ -34,7 +34,7 @@ class LuckProbAdapter(private val context: Context, private val luckDogList: Lis
         holder.headPortrait.setImageDrawable(context.resources.getDrawable(headPortraitList.get(0)))
         holder.name.text  = luckDogList[position].name
         holder.workNum.text = luckDogList[position].workNum
-        holder.weight .text = luckDogList[position].winProb.toString()
+        holder.weight.text = luckDogList[position].winProb.toString()
 
     }
 
