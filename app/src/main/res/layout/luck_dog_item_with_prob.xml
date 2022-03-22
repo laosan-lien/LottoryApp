@@ -9,8 +9,8 @@
 
     <com.loasan.lucky.ui.RoundImageView
         android:id="@+id/headPortrait"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_gravity="center"
         android:src="@drawable/look_head" />
 
@@ -19,6 +19,7 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:layout_margin="5dp"
+        android:paddingStart="10dp"
         android:orientation="vertical">
 
 
@@ -54,9 +55,10 @@
         android:id="@+id/weightNum"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginLeft="3dp"
+        android:layout_margin="5dp"
+        android:textSize="30dp"
         android:layout_weight="1"
-        android:background="#81BD81"
+        android:textColor="#ED5D5D"
         android:gravity="center"
         android:orientation="vertical"
         android:text="2" />
