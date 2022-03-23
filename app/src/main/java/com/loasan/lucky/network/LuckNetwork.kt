@@ -1,5 +1,6 @@
 package com.loasan.lucky.network
 
+import android.util.Log
 import com.loasan.lucky.beans.LuckDog
 import retrofit2.Call
 import retrofit2.Callback
@@ -7,6 +8,8 @@ import retrofit2.Response
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
+
+private const val TAG = "Luck:LuckNetwork"
 
 object LuckNetwork {
 
@@ -32,6 +35,7 @@ object LuckNetwork {
 
                 override fun onResponse(call: Call<T>, response: Response<T>) {
                     val body = response.body()
+                    Log.d(TAG, "onResponse:${response.body()}")
                     if (body != null) continuation.resume(body)
                     else continuation.resumeWithException(
                         RuntimeException("response body is null")
