@@ -6,15 +6,27 @@
     android:orientation="vertical"
     tools:context=".WinnersActivity">
 
-    <TextView
-        android:id="@+id/winnerTitle"
+    <LinearLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:text="中奖列表"
-        android:textSize="30sp" />
+        android:layout_marginStart="20dp"
+        android:layout_height="50dp">
 
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:textSize="30dp"
+            android:text="抽奖结果" />
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/winnerList"
         android:layout_width="match_parent"
@@ -30,8 +42,9 @@
 
         <Button
             android:id="@+id/submitRes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:background="@drawable/button_bg_confirm"
             android:alpha="0.7"
             android:text="提交结果" />
     </LinearLayout>
