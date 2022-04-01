@@ -45,7 +45,7 @@ class WinnersActivity : AppCompatActivity() {
                     handler.postDelayed(Runnable {
                         winnerViewModel.winnerList.add(winner)
                         winnerListAdapter.notifyDataSetChanged()
-                    }, (1500 * i).toLong())
+                    }, (6000 * i).toLong())
                 }
             } else {
                 Toast.makeText(this, "抽奖结果获取失败", Toast.LENGTH_SHORT).show()
