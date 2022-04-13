@@ -27,7 +27,7 @@ class AddMemberActivity : AppCompatActivity() {
 
         inputName.addTextChangedListener {
             name = it.toString()
-            Log.d(TAG, "onCreate: intput name = $name")
+            Log.d(TAG, "onCreate: input name = $name")
         }
         inputWorkNum.addTextChangedListener {
             workNum = it.toString()

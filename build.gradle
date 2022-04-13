@@ -1,10 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
-        google()
+        //顶层构建文件
+        google()//
         mavenCentral()
     }
     dependencies {
+        //整个项目的公共依赖项
         classpath "com.android.tools.build:gradle:7.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
 
