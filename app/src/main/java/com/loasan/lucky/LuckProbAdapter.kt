@@ -34,7 +34,7 @@ class LuckProbAdapter(private val context: Context, private val luckDogList: Lis
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.headPortrait.setImageDrawable(context.resources.getDrawable(HeadPortraitList.getHeadPortrait()))
+        holder.headPortrait.setImageDrawable(context.resources.getDrawable(HeadPortraitList.getHeadPortrait(luckDogList[position].name)))
         holder.name.text  = luckDogList[position].name
         holder.workNum.text = luckDogList[position].workNum
         holder.weight.text =  String.format("%.3f",(luckDogList[position].winProb.toDouble()/1000))

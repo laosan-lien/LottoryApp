@@ -1,9 +1,11 @@
 package com.loasan.lucky.ui
 
+import android.util.Log
 import com.loasan.lucky.R
 import java.util.*
 import kotlin.collections.ArrayList
 
+private const val TAG = "Loasan:HeadPortraitList"
 
 class HeadPortraitList {
     companion object{
@@ -38,8 +40,10 @@ class HeadPortraitList {
             headPortraitList.add(R.drawable.avatar_wanda_howard)
         }
 
-        fun getHeadPortrait(): Int {
-            return headPortraitList[Random().nextInt(headPortraitList.size)]
+        fun getHeadPortrait(name:String): Int {
+            Log.d(TAG, "getHeadPortrait: ${name.hashCode()}")
+            name.hashCode().mod(headPortraitList.size)
+            return headPortraitList[name.hashCode().mod(headPortraitList.size)]
         }
     }
 
